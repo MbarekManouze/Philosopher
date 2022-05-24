@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 22:00:45 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/22 22:01:19 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:46:11 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void    initializing(t_thread *data, char **av)
     data->time_to_die = ft_atoi(av[2]);
     data->time_to_eat = ft_atoi(av[3]);
     data->time_to_sleep = ft_atoi(av[4]);
+    data->check_death = 1;
+    data->allow = 1;
 }
 
 void    parse(t_thread *data)

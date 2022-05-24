@@ -6,7 +6,7 @@
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 10:37:42 by mmanouze          #+#    #+#              #
-#    Updated: 2022/05/23 10:40:01 by mmanouze         ###   ########.fr        #
+#    Updated: 2022/05/24 19:09:57 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -fsanitize=thread
 
 clean :
 	rm -f $(OBJ)

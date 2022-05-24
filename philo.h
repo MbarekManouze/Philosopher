@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 08:45:03 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/22 22:10:08 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:45:19 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ typedef struct s_philo
 
 typedef struct threads 
 {
+    int check_death;
     int philo_num;
     int time_to_die;
     int time_to_eat;
     int time_to_sleep;
     long start_time;
+    int allow;
     pthread_mutex_t write;
     pthread_mutex_t *fork;
     t_philo *philo;
