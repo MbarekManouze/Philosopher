@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 08:58:02 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/22 21:52:21 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/25 19:11:35 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_memcmp(const void	*s1, const void	*s2, size_t n)
 
 size_t	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

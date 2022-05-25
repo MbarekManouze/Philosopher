@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 08:45:03 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/24 11:45:19 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/25 19:19:38 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_philo
     int rf;
     long last_meal;
     long last_nap;
+    int eaten;
     pthread_t th;
     struct threads *data;
 }       t_philo;
@@ -39,6 +40,7 @@ typedef struct threads
     int time_to_sleep;
     long start_time;
     int allow;
+    int must_eat;
     pthread_mutex_t write;
     pthread_mutex_t *fork;
     t_philo *philo;
@@ -47,14 +49,17 @@ typedef struct threads
 int	ft_atoi(const	char	*str);
 int	ft_memcmp(const void	*s1, const void	*s2, size_t n);
 size_t	ft_strlen(char *str);
-long int current_time();
+long int current_time(void);
 void    ft_print(t_philo *philo, char *str);
 long int current_time();
 int death_condition(t_philo *philo);
-void    initializing(t_thread *data, char **av);
-void    parse(t_thread *data);
+void    initializing(t_thread *data, char **av, int ac);
+void    parse(t_thread *data, int ac);
 void    eating(t_philo *philo);
 void    sleeping(t_philo *philo);
 void    thinking(t_philo *philo);
+void    creat_philos(t_thread *data);
+void    *nothing(void   *pass);
+int check_errors(char   **av);
 
 #endif
