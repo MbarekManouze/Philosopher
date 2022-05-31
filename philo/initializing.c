@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 22:00:45 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/25 19:10:38 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:23:50 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	initializing(t_thread *data, char **av, int ac)
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
 	data->time_to_sleep = ft_atoi(av[4]);
+	data->must_eat = -1;
 	if (ac == 6)
 		data->must_eat = ft_atoi(av[5]);
 	data->check_death = 1;

@@ -6,7 +6,7 @@
 #    By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 10:37:42 by mmanouze          #+#    #+#              #
-#    Updated: 2022/05/26 12:27:10 by mmanouze         ###   ########.fr        #
+#    Updated: 2022/05/31 12:32:14 by mmanouze         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -fsanitize=address
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

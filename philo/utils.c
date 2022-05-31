@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 21:57:18 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/25 19:19:19 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:34:45 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	death_condition(t_philo *philo)
 	return (0);
 }
 
-void	creat_philos(t_thread *data)
+int	creat_philos(t_thread *data)
 {
 	int	i;
 
@@ -56,10 +56,13 @@ void	creat_philos(t_thread *data)
 	while (i < data->philo_num)
 	{
 		data->philo[i].last_meal = current_time();
-		pthread_create(&data->philo[i].th, NULL, &nothing, &data->philo[i]);
+		if (pthread_create(&data->philo[i].th,
+				NULL, &nothing, &data->philo[i]) != 0)
+			return (1);
 		i++;
 		usleep(100);
 	}
+	return (0);
 }
 
 int	check_errors(char **av)

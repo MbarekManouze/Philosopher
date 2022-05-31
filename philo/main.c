@@ -6,7 +6,7 @@
 /*   By: mmanouze <mmanouze@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 08:46:46 by mmanouze          #+#    #+#             */
-/*   Updated: 2022/05/25 19:09:02 by mmanouze         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:33:18 by mmanouze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,16 @@ void	*nothing(void *pass)
 
 int	must_eaten(t_thread *data)
 {
-	if (data->philo[0].eaten >= data->must_eat
-		&& data->philo[data->philo_num - 1].eaten >= data->must_eat
-		&& data->philo[data->philo_num - 2].eaten >= data->must_eat)
+	int	i;
+
+	i = 0;
+	while (i < data->philo_num)
+	{
+		if (data->philo[i].eaten != data->must_eat)
+			return (0);
+		i++;
+	}
+	if (i == data->philo_num)
 	{
 		data->allow = 0;
 		pthread_mutex_lock(&data->write);
@@ -45,13 +52,17 @@ int	launching_philos(t_thread *data)
 	int	i;
 
 	data->start_time = current_time();
-	creat_philos(data);
+	if (creat_philos(data))
+	{
+		write(2, "Creating philos failed\n", 24);
+		return (0);
+	}
 	while (1)
 	{
 		i = 0;
 		while (i < data->philo_num)
 		{
-			if (must_eaten(data))
+			if (must_eaten(data) == 1)
 				return (0);
 			else if (death_condition(&data->philo[i]))
 			{
